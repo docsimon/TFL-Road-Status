@@ -39,6 +39,7 @@ struct Constants {
         static let urlRequestErrorMsg = "URLRequest is empty"
         static let urlPageErrorTitle = "No url"
         static let urlPageErrorMsg = "No web page availble for this event"
+        static let urlCreationErrorMsg = "Cannot create the url"
         static let sessionErrorTitle =  "Authentication Failed"
         static let sessionErrorMsg = "Impossible fetching session url"
         static let statusCodeUnknownMsg = "Status code unknown"

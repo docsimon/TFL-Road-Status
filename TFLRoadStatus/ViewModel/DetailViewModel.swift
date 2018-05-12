@@ -24,7 +24,27 @@ class DetailViewModel {
     }
     
     func fetchData() {
+        let buildUrl = BuildUrl(searchItem: searchItem, basePath: Constants.Client.basePath)
+        guard let url = buildUrl.getUrl() else {
+            delegate?.displayError(errorData: ErrorData(errorTitle: Constants.Errors.urlPageErrorTitle, errorMsg: Constants.Errors.urlCreationErrorMsg))
+            return
+        }
+        let client = Client()
+        client.fetchRemoteData(request: url, dataHandler: .roadHandler, completion: {data, error in
+            
+            guard error == nil else {
+                self.delegate?.displayError(errorData: ErrorData(errorTitle: Constants.Errors.errorReceivingData, errorMsg: error.debugDescription))
+                return
+            }
+
+            guard let data = data as? [Road] else {
+                self.delegate?.displayError(errorData: ErrorData(errorTitle: Constants.Errors.errorDataTitle, errorMsg: Constants.Errors.errorReceivingData))
+                return
+            }
+            
+            self.delegate?.updateUIWithData(data: data[0])
+            
+        })
     }
-    
     
 }
