@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		CAA25E8020A71A470058242E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA25E7F20A71A470058242E /* AppDelegate.swift */; };
-		CAA25E8220A71A470058242E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA25E8120A71A470058242E /* ViewController.swift */; };
+		CAA25E8220A71A470058242E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA25E8120A71A470058242E /* SearchViewController.swift */; };
 		CAA25E8520A71A470058242E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAA25E8320A71A470058242E /* Main.storyboard */; };
 		CAA25E8720A71A480058242E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAA25E8620A71A480058242E /* Assets.xcassets */; };
 		CAA25E8A20A71A480058242E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAA25E8820A71A480058242E /* LaunchScreen.storyboard */; };
 		CAA25E9520A71A480058242E /* TFLRoadStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA25E9420A71A480058242E /* TFLRoadStatusTests.swift */; };
 		CAA25EA020A71A480058242E /* TFLRoadStatusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA25E9F20A71A480058242E /* TFLRoadStatusUITests.swift */; };
+		CAA25EB220A71B510058242E /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA25EB120A71B510058242E /* Client.swift */; };
+		CAA25EB420A71BBF0058242E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA25EB320A71BBF0058242E /* Constants.swift */; };
+		CAA25EB620A71CCC0058242E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA25EB520A71CCC0058242E /* DataModel.swift */; };
+		CAA25EB820A71F1D0058242E /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA25EB720A71F1D0058242E /* DataParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +40,7 @@
 /* Begin PBXFileReference section */
 		CAA25E7C20A71A470058242E /* TFLRoadStatus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TFLRoadStatus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAA25E7F20A71A470058242E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CAA25E8120A71A470058242E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CAA25E8120A71A470058242E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CAA25E8420A71A470058242E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CAA25E8620A71A480058242E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAA25E8920A71A480058242E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +51,10 @@
 		CAA25E9B20A71A480058242E /* TFLRoadStatusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TFLRoadStatusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAA25E9F20A71A480058242E /* TFLRoadStatusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFLRoadStatusUITests.swift; sourceTree = "<group>"; };
 		CAA25EA120A71A480058242E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAA25EB120A71B510058242E /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		CAA25EB320A71BBF0058242E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CAA25EB520A71CCC0058242E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		CAA25EB720A71F1D0058242E /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +105,10 @@
 		CAA25E7E20A71A470058242E /* TFLRoadStatus */ = {
 			isa = PBXGroup;
 			children = (
-				CAA25E7F20A71A470058242E /* AppDelegate.swift */,
-				CAA25E8120A71A470058242E /* ViewController.swift */,
-				CAA25E8320A71A470058242E /* Main.storyboard */,
-				CAA25E8620A71A480058242E /* Assets.xcassets */,
-				CAA25E8820A71A480058242E /* LaunchScreen.storyboard */,
+				CAA25EB020A71AA50058242E /* Support */,
+				CAA25EAF20A71A940058242E /* Model */,
+				CAA25EAE20A71A8B0058242E /* View */,
+				CAA25EAD20A71A7E0058242E /* ViewModel */,
 				CAA25E8B20A71A480058242E /* Info.plist */,
 			);
 			path = TFLRoadStatus;
@@ -123,6 +130,43 @@
 				CAA25EA120A71A480058242E /* Info.plist */,
 			);
 			path = TFLRoadStatusUITests;
+			sourceTree = "<group>";
+		};
+		CAA25EAD20A71A7E0058242E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CAA25EAE20A71A8B0058242E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CAA25E8120A71A470058242E /* SearchViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CAA25EAF20A71A940058242E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CAA25EB120A71B510058242E /* Client.swift */,
+				CAA25EB320A71BBF0058242E /* Constants.swift */,
+				CAA25EB520A71CCC0058242E /* DataModel.swift */,
+				CAA25EB720A71F1D0058242E /* DataParser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CAA25EB020A71AA50058242E /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				CAA25E8820A71A480058242E /* LaunchScreen.storyboard */,
+				CAA25E8620A71A480058242E /* Assets.xcassets */,
+				CAA25E8320A71A470058242E /* Main.storyboard */,
+				CAA25E7F20A71A470058242E /* AppDelegate.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +300,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAA25E8220A71A470058242E /* ViewController.swift in Sources */,
+				CAA25EB620A71CCC0058242E /* DataModel.swift in Sources */,
+				CAA25E8220A71A470058242E /* SearchViewController.swift in Sources */,
+				CAA25EB820A71F1D0058242E /* DataParser.swift in Sources */,
 				CAA25E8020A71A470058242E /* AppDelegate.swift in Sources */,
+				CAA25EB220A71B510058242E /* Client.swift in Sources */,
+				CAA25EB420A71BBF0058242E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
