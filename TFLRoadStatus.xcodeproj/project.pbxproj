@@ -18,6 +18,8 @@
 		CAA25EB420A71BBF0058242E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA25EB320A71BBF0058242E /* Constants.swift */; };
 		CAA25EB620A71CCC0058242E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA25EB520A71CCC0058242E /* DataModel.swift */; };
 		CAA25EB820A71F1D0058242E /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA25EB720A71F1D0058242E /* DataParser.swift */; };
+		CAA25EBA20A736010058242E /* DataTest.json in Resources */ = {isa = PBXBuildFile; fileRef = CAA25EB920A736010058242E /* DataTest.json */; };
+		CAA25EBB20A736010058242E /* DataTest.json in Resources */ = {isa = PBXBuildFile; fileRef = CAA25EB920A736010058242E /* DataTest.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,7 @@
 		CAA25EB320A71BBF0058242E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CAA25EB520A71CCC0058242E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		CAA25EB720A71F1D0058242E /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
+		CAA25EB920A736010058242E /* DataTest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DataTest.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +164,7 @@
 		CAA25EB020A71AA50058242E /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				CAA25EB920A736010058242E /* DataTest.json */,
 				CAA25E8820A71A480058242E /* LaunchScreen.storyboard */,
 				CAA25E8620A71A480058242E /* Assets.xcassets */,
 				CAA25E8320A71A470058242E /* Main.storyboard */,
@@ -276,6 +280,7 @@
 				CAA25E8A20A71A480058242E /* LaunchScreen.storyboard in Resources */,
 				CAA25E8720A71A480058242E /* Assets.xcassets in Resources */,
 				CAA25E8520A71A470058242E /* Main.storyboard in Resources */,
+				CAA25EBA20A736010058242E /* DataTest.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAA25EBB20A736010058242E /* DataTest.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
