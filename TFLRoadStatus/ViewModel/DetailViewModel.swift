@@ -29,6 +29,7 @@ class DetailViewModel {
             delegate?.displayError(errorData: ErrorData(errorTitle: Constants.Errors.urlPageErrorTitle, errorMsg: Constants.Errors.urlCreationErrorMsg))
             return
         }
+        
         let client = Client()
         client.fetchRemoteData(request: url, dataHandler: .roadHandler, completion: {data, error in
             
@@ -36,7 +37,7 @@ class DetailViewModel {
                 self.delegate?.displayError(errorData: ErrorData(errorTitle: Constants.Errors.errorReceivingData, errorMsg: error.debugDescription))
                 return
             }
-
+            
             guard let data = data as? [Road] else {
                 self.delegate?.displayError(errorData: ErrorData(errorTitle: Constants.Errors.errorDataTitle, errorMsg: Constants.Errors.errorReceivingData))
                 return
@@ -46,5 +47,4 @@ class DetailViewModel {
             
         })
     }
-    
 }
