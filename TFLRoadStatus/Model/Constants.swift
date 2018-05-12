@@ -11,20 +11,20 @@ import Foundation
 struct Constants {
     
     struct Client {
-        static let baseUrl = "https://api.tfl.gov.uk/"
-        static let endPoint = "Road"
+        static let baseUrl = "https://api.tfl.gov.uk"
+        static let basePath = "/Road"
     }
     
     // MARK: API Parameter Keys
-    struct ParameterKeys {
+    struct TflParameterKeys {
         static let AppID = "app_id"
-        static let APPKey = "app_key"
+        static let AppKey = "app_key"
     }
     
     // MARK: API Parameter Values
-    struct FlickrParameterValues {
+    struct TflParameterValues {
         static let AppID = "7be229a3"
-        static let APPKey = "a0ada798a9e65177567beea7bfa3f173"
+        static let AppKey = "a0ada798a9e65177567beea7bfa3f173"
     }
     
     // MARK:  Errors

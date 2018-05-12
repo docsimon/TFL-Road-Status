@@ -64,4 +64,15 @@ class TFLRoadStatusTests: XCTestCase {
         })
     }
     
+    
+        func testBuildUrl() {
+            let buildUrl = BuildUrl(searchItem: "A3", basePath: Constants.Client.basePath)
+            let testUrl = buildUrl.getUrl()
+            guard let url = testUrl else {
+                XCTFail()
+                return
+            }
+            XCTAssertEqual(url.absoluteString, "https://api.tfl.gov.uk/Road/A3?app_id=7be229a3&app_key=a0ada798a9e65177567beea7bfa3f173")
+        }
+    
 }
