@@ -44,6 +44,9 @@ struct Constants {
         static let sessionErrorMsg = "Impossible fetching session url"
         static let statusCodeUnknownMsg = "Status code unknown"
         static let errorReceivingData = "Error receiving data"
+        static let errorEmptyFieldTitle = "Empty Field"
+        static let errorEmptyFieldMsg = "The search field can't be empty"
+
         
         struct HttpError {
             static let http400 = "Bad Request – Input validation failed."
