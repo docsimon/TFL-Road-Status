@@ -19,3 +19,8 @@ struct Road: Decodable {
     let statusSeverity: String
     let statusSeverityDescription: String
 }
+
+struct ErrorRoad: Decodable {
+    let httpStatus: String
+    let message: String
+}

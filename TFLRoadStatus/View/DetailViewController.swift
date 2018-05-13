@@ -21,13 +21,14 @@ class DetailViewController: UIViewController {
     var errorManager = ErrorManager()
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.hidesWhenStopped = true
         errorManager.delegate = self
         if let searchItem = searchItem {
             detailViewModel = DetailViewModel(searchItem: searchItem)
             detailViewModel?.delegate = self
             detailViewModel?.fetchData()
-            activityIndicator.activityIndicatorViewStyle =
-                UIActivityIndicatorViewStyle.whiteLarge
+//activityIndicator.activityIndicatorViewStyle =
+        //        UIActivityIndicatorViewStyle.whiteLarge
             activityIndicator.startAnimating()
             bgView.isHidden = false
         }
@@ -47,7 +48,7 @@ extension DetailViewController: DetailViewModelProtocol {
     }
     
     func displayError(errorData: ErrorData) {
-        
+        errorManager.displayError(errorTitle: errorData.errorTitle, errorMsg: errorData.errorMsg)
     }
     
     
@@ -55,7 +56,7 @@ extension DetailViewController: DetailViewModelProtocol {
 
 extension DetailViewController: ErrorControllerProtocol {
     func dismissActivityControl() {
-        
+        activityIndicator.stopAnimating()
     }
     
     func presentError(alertController: UIAlertController) {

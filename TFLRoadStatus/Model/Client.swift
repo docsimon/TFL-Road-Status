@@ -19,14 +19,11 @@ import Foundation
 typealias CompletionClosure<T> = (([T]?, ErrorData?) -> ())
 
 // This struct allowd to Decode json with the correct data type
-enum DataHandler {
-    case roadHandler // associated with the transportation data (here Road)
-    // other cases will manager more data types (more decodable structures)
-}
+
 
 class Client {
     
-    func fetchRemoteData(request: URL, dataHandler: DataHandler, completion: @escaping CompletionClosure<Any>){
+    func fetchRemoteData(request: URL, completion: @escaping CompletionClosure<Any>){
         
         // make the request
         URLSession.shared.dataTask(with: request, completionHandler: {(data, response, error) in
@@ -60,9 +57,14 @@ class Client {
             
             //  send data to correct destination
             
-            switch dataHandler {
-            case .roadHandler:
-                let parsingResult: ([Road]?, ErrorData?) = DataParser.parseJson(data: data)
+            switch httpURLResponse?.statusCode {
+            case 404:
+                let parsingResult: (ErrorRoad?, ErrorData?) = DataParserError.parseJson(data: data)
+                completion([parsingResult.0!], parsingResult.1)
+
+            default: // success case
+               
+                 let parsingResult: ([Road]?, ErrorData?) = DataParser.parseJson(data: data)
                 completion(parsingResult.0, parsingResult.1)
             }
             
@@ -71,7 +73,7 @@ class Client {
     }
     
     private func checkResponseCode(code: Int) -> Bool {
-        let successCode = [200, 201, 202, 203, 204, 304]
+        let successCode = [200, 201, 202, 203, 204, 304, 404]
         return successCode.contains(code)
     }
     

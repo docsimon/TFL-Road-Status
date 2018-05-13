@@ -24,3 +24,17 @@ class DataParser {
         return (jsonStruct, nil)
     }
 }
+
+class DataParserError {
+    static func parseJson<T: Decodable>(data: Data) -> (T?, ErrorData?){
+        let jsonDecoder = JSONDecoder()
+        var jsonStruct: T? = nil
+        do {
+            jsonStruct = try jsonDecoder.decode(T.self, from: data)
+        }catch {
+            let errorData = ErrorData(errorTitle: Constants.Errors.errorDataTitle, errorMsg: error.localizedDescription)
+            return (nil, errorData)
+        }
+        return (jsonStruct, nil)
+    }
+}

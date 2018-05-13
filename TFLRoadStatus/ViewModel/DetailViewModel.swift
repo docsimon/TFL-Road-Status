@@ -10,6 +10,7 @@ import Foundation
 
 protocol DetailViewModelProtocol: class {
     func updateUIWithData(data: Road)
+    //func updateUIWithErrorData(data: ErrorRoad)
     func displayError(errorData: ErrorData)
 }
 
@@ -31,10 +32,15 @@ class DetailViewModel {
         }
         
         let client = Client()
-        client.fetchRemoteData(request: url, dataHandler: .roadHandler, completion: {data, error in
+        client.fetchRemoteData(request: url, completion: {data, error in
             
             guard error == nil else {
                 self.delegate?.displayError(errorData: ErrorData(errorTitle: Constants.Errors.errorReceivingData, errorMsg: error.debugDescription))
+                return
+            }
+            
+            if let data = data as? [ErrorRoad]{
+                 self.delegate?.displayError(errorData: ErrorData(errorTitle: data[0].httpStatus, errorMsg: data[0].message))
                 return
             }
             
