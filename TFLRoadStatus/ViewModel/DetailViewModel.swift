@@ -35,7 +35,7 @@ class DetailViewModel {
         client.fetchRemoteData(request: url, completion: {data, error in
             
             guard error == nil else {
-                self.delegate?.displayError(errorData: ErrorData(errorTitle: Constants.Errors.errorReceivingData, errorMsg: error.debugDescription))
+                self.delegate?.displayError(errorData: error!)
                 return
             }
             

@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tfl_logo" width="355" height="361"/>
+        <image name="tfl_logo" width="318" height="159"/>
     </resources>
 </document>
