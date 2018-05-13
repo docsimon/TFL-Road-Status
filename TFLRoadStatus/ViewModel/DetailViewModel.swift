@@ -10,7 +10,6 @@ import Foundation
 
 protocol DetailViewModelProtocol: class {
     func updateUIWithData(data: Road)
-    //func updateUIWithErrorData(data: ErrorRoad)
     func displayError(errorData: ErrorData)
 }
 

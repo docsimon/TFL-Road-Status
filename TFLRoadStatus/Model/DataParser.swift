@@ -8,8 +8,6 @@
 
 import Foundation
 
-import Foundation
-
 typealias DataHandlerClosure<T: Decodable> = (Data) -> (T?, ErrorData?)
 
 class DataParser {

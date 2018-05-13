@@ -7,8 +7,6 @@
 //
 
 import Foundation
-
-
 /*
  The responsibilities of the following class are:
  - Managing all the error related to the connection

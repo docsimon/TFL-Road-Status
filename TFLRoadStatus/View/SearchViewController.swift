@@ -33,6 +33,7 @@ class SearchViewController: UIViewController {
         
     }
 }
+// MARK: Error Protocol
 extension SearchViewController: ErrorControllerProtocol {
     func dismissActivityControl() {
         // unused here

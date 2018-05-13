@@ -36,6 +36,7 @@ class DetailViewController: UIViewController {
 
 }
 
+// MARK: View Model Protocol
 extension DetailViewController: DetailViewModelProtocol {
     func updateUIWithData(data: Road) {
         DispatchQueue.main.async {
@@ -54,6 +55,7 @@ extension DetailViewController: DetailViewModelProtocol {
     
 }
 
+// MARK: Error Protocol
 extension DetailViewController: ErrorControllerProtocol {
     func dismissActivityControl() {
         activityIndicator.stopAnimating()
