@@ -38,18 +38,18 @@ class DetailViewModel {
                 self.delegate?.displayError(errorData: error!)
                 return
             }
-            
-            if let data = data as? [ErrorRoad]{
-                 self.delegate?.displayError(errorData: ErrorData(errorTitle: data[0].httpStatus, errorMsg: data[0].message))
+
+            if let data = data as? ErrorRoad{
+                 self.delegate?.displayError(errorData: ErrorData(errorTitle: data.httpStatus, errorMsg: data.message))
                 return
             }
             
-            guard let data = data as? [Road] else {
+            guard let data = data as? Road else {
                 self.delegate?.displayError(errorData: ErrorData(errorTitle: Constants.Errors.errorDataTitle, errorMsg: Constants.Errors.errorReceivingData))
                 return
             }
             
-            self.delegate?.updateUIWithData(data: data[0])
+            self.delegate?.updateUIWithData(data: data)
             
         })
     }

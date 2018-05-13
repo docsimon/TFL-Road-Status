@@ -16,7 +16,7 @@ import Foundation
  */
 
 // This closure will be used as a callback for Authentication and Json data
-typealias CompletionClosure<T> = (([T]?, ErrorData?) -> ())
+typealias CompletionClosure<T> = ((T?, ErrorData?) -> ())
 
 // This struct allowd to Decode json with the correct data type
 
@@ -56,15 +56,13 @@ class Client {
             }
             
             //  send data to correct destination
-            
             switch httpURLResponse?.statusCode {
             case 404:
-                let parsingResult: (ErrorRoad?, ErrorData?) = DataParserError.parseJson(data: data)
-                completion([parsingResult.0!], parsingResult.1)
-
+                let parsingResult: (ErrorRoad?, ErrorData?) = DataParser.parseJson(data: data)
+                completion(parsingResult.0!, parsingResult.1)
+                
             default: // success case
-               
-                 let parsingResult: ([Road]?, ErrorData?) = DataParser.parseJson(data: data)
+                let parsingResult: (Road?, ErrorData?) = DataParser.parseJson(data: data)
                 completion(parsingResult.0, parsingResult.1)
             }
             
