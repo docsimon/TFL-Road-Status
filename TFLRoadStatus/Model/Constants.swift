@@ -23,8 +23,8 @@ struct Constants {
     
     // MARK: API Parameter Values
     struct TflParameterValues {
-        static let AppID = "<YOUR APPLICATION ID>"
-        static let AppKey = "<YOUR APPLICATION KEY>"
+        static let AppID = "7be229a3"
+        static let AppKey = "a0ada798a9e65177567beea7bfa3f173"
     }
     
     // MARK:  Errors

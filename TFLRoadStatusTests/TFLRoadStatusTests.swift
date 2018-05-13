@@ -14,6 +14,7 @@ class TFLRoadStatusTests: XCTestCase {
     var data: Data?
     var url: URL?
     let murl = URL(string: "https://api.tfl.gov.uk/Road/A3?app_id=7be229a3&app_key=a0ada798a9e65177567beea7bfa3f173")
+    let murlError = URL(string: "https://api.tfl.gov.uk/Road/A3Test?app_id=7be229a3&app_key=a0ada798a9e65177567beea7bfa3f173")
     
     override func setUp() {
         super.setUp()
@@ -50,27 +51,49 @@ class TFLRoadStatusTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Fetch Json data")
         let client = Client()
         
-        client.fetchRemoteData(request: murl!, dataHandler: .roadHandler, completion: {data, error in
+        client.fetchRemoteData(request: murl!, completion: {data, error in
             guard error == nil else {
                 XCTFail(error.debugDescription)
                 return
             }
-            guard let data = data as? [Road] else {
+            guard let data = data as? Road else {
                 XCTFail()
                 return
             }
             
-            let roadData = data[0]
+            let roadData = data
             XCTAssertEqual(roadData.displayName, "A3")
             XCTAssertEqual(roadData.statusSeverity, "Good")
             XCTAssertEqual(roadData.statusSeverityDescription, "No Exceptional Delays")
             expectation.fulfill()
         })
         
-        wait(for: [expectation], timeout: 5.0)
+        wait(for: [expectation], timeout: 10.0)
 
     }
     
+    func testClientError() {
+        let expectation = XCTestExpectation(description: "Fetch Json data")
+        let client = Client()
+        
+        client.fetchRemoteData(request: murlError!, completion: {data, error in
+            guard error == nil else {
+                XCTFail(error.debugDescription)
+                return
+            }
+            guard let data = data as? ErrorRoad else {
+                XCTFail()
+                return
+            }
+            
+            let roadData = data
+            XCTAssertEqual(roadData.httpStatus, "NotFound")
+            expectation.fulfill()
+        })
+        
+        wait(for: [expectation], timeout: 10.0)
+        
+    }
     
     func testBuildUrl() {
         let buildUrl = BuildUrl(searchItem: "A3", basePath: Constants.Client.basePath)
