@@ -10,6 +10,12 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var roadName: UILabel!
+    @IBOutlet weak var roadStatus: UILabel!
+    @IBOutlet weak var roadStatusDescription: UILabel!
+    @IBOutlet weak var bgView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var searchItem: String?
     var detailViewModel: DetailViewModel?
     var errorManager = ErrorManager()
@@ -20,6 +26,10 @@ class DetailViewController: UIViewController {
             detailViewModel = DetailViewModel(searchItem: searchItem)
             detailViewModel?.delegate = self
             detailViewModel?.fetchData()
+            activityIndicator.activityIndicatorViewStyle =
+                UIActivityIndicatorViewStyle.whiteLarge
+            activityIndicator.startAnimating()
+            bgView.isHidden = false
         }
     }
 
@@ -27,7 +37,13 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: DetailViewModelProtocol {
     func updateUIWithData(data: Road) {
-        
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            self.bgView.isHidden = true
+            self.roadName.text = data.displayName
+            self.roadStatus.text = data.statusSeverity
+            self.roadStatusDescription.text = data.statusSeverityDescription
+        }
     }
     
     func displayError(errorData: ErrorData) {
