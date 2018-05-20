@@ -21,10 +21,15 @@ typealias CompletionClosure<T> = ((T?, ErrorData?) -> ())
 
 class Client {
     
+    let session: URLSessionProtocol
+    
+    init(session: URLSessionProtocol){
+        self.session = session
+    }
     func fetchRemoteData(request: URL, completion: @escaping CompletionClosure<Any>){
         
         // make the request
-        URLSession.shared.dataTask(with: request, completionHandler: {(data, response, error) in
+        session.dataTask(with: request, completionHandler: {(data, response, error) in
             
             // error checking
             guard (error == nil) else {

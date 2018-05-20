@@ -30,7 +30,8 @@ class DetailViewModel {
             return
         }
         
-        let client = Client()
+        let session = URLSession.shared
+        let client = Client(session: session)
         client.fetchRemoteData(request: url, completion: {data, error in
             
             guard error == nil else {
