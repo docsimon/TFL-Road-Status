@@ -26,6 +26,10 @@
 		CAA25EBB20A736010058242E /* DataTest.json in Resources */ = {isa = PBXBuildFile; fileRef = CAA25EB920A736010058242E /* DataTest.json */; };
 		CADBBC3120B1B9A70093EFFF /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBBC3020B1B9A70093EFFF /* URLSessionProtocol.swift */; };
 		CADBBC3320B1BA0D0093EFFF /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBBC3220B1BA0D0093EFFF /* URLSessionDataTaskProtocol.swift */; };
+		CADBBC3520B1BD580093EFFF /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBBC3420B1BD580093EFFF /* MockURLSession.swift */; };
+		CADBBC3920B1BF7E0093EFFF /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBBC3820B1BF7E0093EFFF /* MockURLSessionDataTask.swift */; };
+		CADBBC3D20B1CC100093EFFF /* DataTestNotFound.json in Resources */ = {isa = PBXBuildFile; fileRef = CADBBC3C20B1CC100093EFFF /* DataTestNotFound.json */; };
+		CADBBC3E20B1CF780093EFFF /* DataTestNotFound.json in Resources */ = {isa = PBXBuildFile; fileRef = CADBBC3C20B1CC100093EFFF /* DataTestNotFound.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +74,9 @@
 		CAA25EB920A736010058242E /* DataTest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DataTest.json; sourceTree = "<group>"; };
 		CADBBC3020B1B9A70093EFFF /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		CADBBC3220B1BA0D0093EFFF /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
+		CADBBC3420B1BD580093EFFF /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		CADBBC3820B1BF7E0093EFFF /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
+		CADBBC3C20B1CC100093EFFF /* DataTestNotFound.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DataTestNotFound.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,7 +188,6 @@
 		CAA25EB020A71AA50058242E /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				CAA25EB920A736010058242E /* DataTest.json */,
 				CAA25E8820A71A480058242E /* LaunchScreen.storyboard */,
 				CAA25E8620A71A480058242E /* Assets.xcassets */,
 				CAA25E8320A71A470058242E /* Main.storyboard */,
@@ -193,8 +199,12 @@
 		CADBBC2F20B1B9830093EFFF /* TestModel */ = {
 			isa = PBXGroup;
 			children = (
+				CAA25EB920A736010058242E /* DataTest.json */,
 				CADBBC3020B1B9A70093EFFF /* URLSessionProtocol.swift */,
 				CADBBC3220B1BA0D0093EFFF /* URLSessionDataTaskProtocol.swift */,
+				CADBBC3420B1BD580093EFFF /* MockURLSession.swift */,
+				CADBBC3820B1BF7E0093EFFF /* MockURLSessionDataTask.swift */,
+				CADBBC3C20B1CC100093EFFF /* DataTestNotFound.json */,
 			);
 			path = TestModel;
 			sourceTree = "<group>";
@@ -307,6 +317,7 @@
 				CAA25E8720A71A480058242E /* Assets.xcassets in Resources */,
 				CAA25E8520A71A470058242E /* Main.storyboard in Resources */,
 				CAA25EBA20A736010058242E /* DataTest.json in Resources */,
+				CADBBC3D20B1CC100093EFFF /* DataTestNotFound.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +325,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CADBBC3E20B1CF780093EFFF /* DataTestNotFound.json in Resources */,
 				CAA25EBB20A736010058242E /* DataTest.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +356,8 @@
 				CAA25EB420A71BBF0058242E /* Constants.swift in Sources */,
 				CA9541E920A74BDF00B5854E /* DetailViewController.swift in Sources */,
 				CA9541EB20A74C1500B5854E /* DetailViewModel.swift in Sources */,
+				CADBBC3520B1BD580093EFFF /* MockURLSession.swift in Sources */,
+				CADBBC3920B1BF7E0093EFFF /* MockURLSessionDataTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

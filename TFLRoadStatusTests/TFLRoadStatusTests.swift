@@ -12,20 +12,25 @@ import XCTest
 class TFLRoadStatusTests: XCTestCase {
     
     var data: Data?
-    var url: URL?
-    let murl = URL(string: "https://api.tfl.gov.uk/Road/A3?app_id=7be229a3&app_key=a0ada798a9e65177567beea7bfa3f173")
-    let murlError = URL(string: "https://api.tfl.gov.uk/Road/A3Test?app_id=7be229a3&app_key=a0ada798a9e65177567beea7bfa3f173")
+    var dataNotFound: Data?
+    let murl = URL(string: "https://api.tfl.gov.uk/")
     
     override func setUp() {
         super.setUp()
         let bundle = Bundle(for: type(of: self))
-        guard let murl = bundle.url(forResource: "DataTest", withExtension: "json") else {
+        guard let url = bundle.url(forResource: "DataTest", withExtension: "json") else {
             XCTFail("No file found")
             return
         }
         
-        url = murl
-        data = try? Data(contentsOf: url!)
+        data = try? Data(contentsOf: url)
+        
+        guard let burl = bundle.url(forResource: "DataTestNotFound", withExtension: "json") else {
+            XCTFail("No file found")
+            return
+        }
+        
+         dataNotFound = try? Data(contentsOf: burl)
     }
     
     override func tearDown() {
@@ -49,7 +54,9 @@ class TFLRoadStatusTests: XCTestCase {
     
     func testClient() {
         let expectation = XCTestExpectation(description: "Fetch Json data")
-        let client = Client()
+        let responseCode = HTTPURLResponse(url: murl!, statusCode: 200, httpVersion: nil, headerFields: nil)
+        let session = MockURLSession(data: data, responseCode: responseCode, error: nil)
+        let client = Client(session: session)
         
         client.fetchRemoteData(request: murl!, completion: {data, error in
             guard error == nil else {
@@ -74,9 +81,32 @@ class TFLRoadStatusTests: XCTestCase {
     
     func testClientError() {
         let expectation = XCTestExpectation(description: "Fetch Json data")
-        let client = Client()
+        let error = NSError(domain: "", code: 101, userInfo: nil)
+        let session = MockURLSession(data: data, responseCode: nil, error: error)
+        let client = Client(session: session)
         
-        client.fetchRemoteData(request: murlError!, completion: {data, error in
+        client.fetchRemoteData(request: murl!, completion: {data, error in
+            
+            XCTAssertNotNil(error, "Error shouldn't be nil")
+            XCTAssertNil(data, "Data should be nil in case of error")
+            expectation.fulfill()
+        })
+        
+        wait(for: [expectation], timeout: 10.0)
+        
+    }
+    
+    func testClient404ResponseCode() {
+        let expectation = XCTestExpectation(description: "Fetch Not Found Json data")
+         let responseCode = HTTPURLResponse(url: murl!, statusCode: 404, httpVersion: nil, headerFields: nil)
+        
+        XCTAssert(responseCode?.statusCode == 404, "The response code is not 404")
+        
+        let session = MockURLSession(data: dataNotFound, responseCode: responseCode, error: nil)
+       
+        let client = Client(session: session)
+        
+        client.fetchRemoteData(request: murl!, completion: {data, error in
             guard error == nil else {
                 XCTFail(error.debugDescription)
                 return
@@ -95,6 +125,7 @@ class TFLRoadStatusTests: XCTestCase {
         
     }
     
+    // Change the url string accordingly to your app_id and app_key
     func testBuildUrl() {
         let buildUrl = BuildUrl(searchItem: "A3", basePath: Constants.Client.basePath)
         let testUrl = buildUrl.getUrl()
@@ -102,7 +133,7 @@ class TFLRoadStatusTests: XCTestCase {
             XCTFail()
             return
         }
-        XCTAssertEqual(url.absoluteString, "https://api.tfl.gov.uk/Road/A3?app_id=7be229a3&app_key=a0ada798a9e65177567beea7bfa3f173")
+        XCTAssertEqual(url.absoluteString, "https://api.tfl.gov.uk/Road/A3?app_id=%3CYOUR%20application%20ID%3E&app_key=%3CYOUR%20application%20key%3E")
     }
     
 }

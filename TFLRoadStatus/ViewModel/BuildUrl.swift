@@ -26,6 +26,7 @@ class BuildUrl{
         ]
         
         let url = urlComponents?.url
+        debugPrint(url?.absoluteString)
         return url
     }
 }
