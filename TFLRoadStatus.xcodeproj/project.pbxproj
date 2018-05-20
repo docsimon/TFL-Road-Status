@@ -24,6 +24,8 @@
 		CAA25EB820A71F1D0058242E /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA25EB720A71F1D0058242E /* DataParser.swift */; };
 		CAA25EBA20A736010058242E /* DataTest.json in Resources */ = {isa = PBXBuildFile; fileRef = CAA25EB920A736010058242E /* DataTest.json */; };
 		CAA25EBB20A736010058242E /* DataTest.json in Resources */ = {isa = PBXBuildFile; fileRef = CAA25EB920A736010058242E /* DataTest.json */; };
+		CADBBC3120B1B9A70093EFFF /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBBC3020B1B9A70093EFFF /* URLSessionProtocol.swift */; };
+		CADBBC3320B1BA0D0093EFFF /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBBC3220B1BA0D0093EFFF /* URLSessionDataTaskProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		CAA25EB520A71CCC0058242E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		CAA25EB720A71F1D0058242E /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
 		CAA25EB920A736010058242E /* DataTest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DataTest.json; sourceTree = "<group>"; };
+		CADBBC3020B1B9A70093EFFF /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		CADBBC3220B1BA0D0093EFFF /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 		CAA25E7E20A71A470058242E /* TFLRoadStatus */ = {
 			isa = PBXGroup;
 			children = (
+				CADBBC2F20B1B9830093EFFF /* TestModel */,
 				CAA25EB020A71AA50058242E /* Support */,
 				CAA25EAF20A71A940058242E /* Model */,
 				CAA25EAE20A71A8B0058242E /* View */,
@@ -183,6 +188,15 @@
 				CAA25E7F20A71A470058242E /* AppDelegate.swift */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		CADBBC2F20B1B9830093EFFF /* TestModel */ = {
+			isa = PBXGroup;
+			children = (
+				CADBBC3020B1B9A70093EFFF /* URLSessionProtocol.swift */,
+				CADBBC3220B1BA0D0093EFFF /* URLSessionDataTaskProtocol.swift */,
+			);
+			path = TestModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,9 +334,11 @@
 			files = (
 				CAA25EB620A71CCC0058242E /* DataModel.swift in Sources */,
 				CAA25E8220A71A470058242E /* SearchViewController.swift in Sources */,
+				CADBBC3320B1BA0D0093EFFF /* URLSessionDataTaskProtocol.swift in Sources */,
 				CAA25EB820A71F1D0058242E /* DataParser.swift in Sources */,
 				CAA25E8020A71A470058242E /* AppDelegate.swift in Sources */,
 				CA9541F520A885EE00B5854E /* ErrorManager.swift in Sources */,
+				CADBBC3120B1B9A70093EFFF /* URLSessionProtocol.swift in Sources */,
 				CAA25EB220A71B510058242E /* Client.swift in Sources */,
 				CA9541ED20A74C5300B5854E /* BuildUrl.swift in Sources */,
 				CAA25EB420A71BBF0058242E /* Constants.swift in Sources */,
